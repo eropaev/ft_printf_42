@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 05:08:39 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/05/16 19:51:27 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/05/30 21:17:46 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include "../libtft/libft.h"
 
 typedef struct s_formats
 {
@@ -23,18 +25,17 @@ typedef struct s_formats
 	int	hash;
 	int	zero;
 	int	space;
+	int	with;
+	int	with_dot;
+
 }				t_formats;
 
-void    ft_putchar(char c);
-void    ft_putstr(char *str);
-size_t  ft_abs(long long ab);
-size_t	ft_strlen(char *str);
-char    *itoa_napolnotel(char *tabula, long long znachenie, int baza, int flagi);
-char    *ft_atoi_baze(long long znachenie, int baze);
-int		ft_counter1 (int i, va_list arg, const char *s);
-int		ft_counter2(int i, va_list arg, const char *s);
-int		ft_ncounter3(int i, const char *s);
-int		ft_ncounter(int i, va_list arg, const char *s);
-int		ft_printf(const char *restrict a, ...);
+int			ft_printf(char *a, ...);
+int			ft_ncounter(int *b, va_list arg, char *s);
+void		parsing(t_formats *strackt, int *b, char *s);
+
+int			get_flags(t_formats *strackt, int i, char *s);
+int			width (t_formats *strackt, int b, char *s);
+int 		precision (t_formats *strackt, int b, char *s);
 
 #endif
