@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 04:59:04 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/20 19:41:42 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/24 16:19:18 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,37 @@ void		sbros_flagov(t_flagi *flag)
 }
 /*
 функция выставления спецификаторов
+принимает формат из printf, структуру флагов,
 */
-int		spechificator(char *format, t_flagi *flag,va_list *arg)
+int		spechificator(char **format, t_flagi *flag,va_list *arg)
+{
+	static int	(*form[])(va_list*, t_flagi*) = {melkay_d, melkay_i,
+			melkay_o, melkay_u, melkay_x, melkay_c, melkay_s,
+			melkay_p, bolshoy_s, bolshoy_d, bolshoy_o, bolshoy_u, bolshoy_x, bolshoy_c
+			modul, 0 };
+static char spechifier [] = {'d', 'i', 'o', 'u', 'x', 'c', 's', 'p', 'D', 'O',
+'U', 'X', 'C', '%', 0};
+
+int			i;
+int			vivod;
+
+i = 0;
+
+while (spechifier[i] != **format && spechifier[i])
+		i++;
+	if (**format != '\0' && spechifier[i] == **format)
+	{
+		vivod = form[i](arg, flag);
+		(*format)++;
+		return (spechifier);
+	}
+	if (**format != '\0')
+	{
+		(*format)++;
+		return (undefined(*(*format - 1), flag));
+	}
+	return (0);
+}
 /*
 парсинг, работа парсера
 */
@@ -39,16 +68,23 @@ int		parsser(char **format, t_flagi *flag, va_list *arg)
 int		vivod;
 
 vivod = 0;
-while (**format)
-{
-	if (**format == '%')
+	while (**format)
 	{
-		/* code */
+		if (**format == '%')
+		{
+			sbros_flagov(flag);
+			(*format)++;
+			spechificator(format, flag, arg);
+			vivod += spechificator(format, flag, arg);
+		}
+		else if (**format != '\0')
+		{
+			ft_putchar(**format);
+			(*format)++;
+			vivod++;
+		}
 	}
-
-}
-
-
+	return(vivod);
 }
 
 int		ft_printf(const char *format, ...) // основной вывод

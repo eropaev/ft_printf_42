@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/23 04:17:54 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/23 04:45:12 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/24 16:19:18 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void		vivod_opchii(char **string, t_flagi *flag, va_list *arg)
 {
 	if (**string != '0' && ft_isdigit(**string))
-		get_width(string, flag, arg);
+		vivod_width(string, flag, arg);
 	if (**string == '.')
-		get_precision(string, flag, arg);
+		vivod_precision(string, flag, arg);
 	if (**string == 'h' || **string == 'l' || **string == 'j' || **string == 'z')
-		get_length(string, flag, arg);
+		vivod_length(string, flag, arg);
 	if (**string == '#' || **string == '0' || **string == '-' || **string == '+'
 			|| **string == ' ')
-		get_flag(string, flag, arg);
+		vivod_flagi(string, flag, arg);
 }
 
-void		get_flag(char **string, t_flag *flag, va_list *arg)
+void		vivod_flagi(char **string, t_flagi *flag, va_list *arg)
 {
 	while (**string == '#' || **string == '0' || **string == '-' || **string == '+'
 			|| **string == ' ')
@@ -45,7 +45,7 @@ void		get_flag(char **string, t_flag *flag, va_list *arg)
 	vivod_opchii(string, flag, arg);
 }
 
-void		get_width(char **string, t_flag *flag, va_list *arg)
+void		vivod_width(char **string, t_flagi *flag, va_list *arg)
 {
 	int		width;
 
@@ -56,7 +56,7 @@ void		get_width(char **string, t_flag *flag, va_list *arg)
 	vivod_opchii(string, flag, arg);
 }
 
-void		get_precision(char **string, t_flag *flag, va_list *arg)
+void		vivod_precision(char **string, t_flagi *flag, va_list *arg)
 {
 	int		precision;
 
@@ -72,7 +72,7 @@ void		get_precision(char **string, t_flag *flag, va_list *arg)
 	vivod_opchii(string, flag, arg);
 }
 
-void		get_length(char **string, t_flag *flag, va_list *arg)
+void		vivod_length(char **string, t_flagi *flag, va_list *arg)
 {
 	if (**string == 'h')
 	{

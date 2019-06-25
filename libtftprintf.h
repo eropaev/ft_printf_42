@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:58:41 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/23 04:49:02 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/25 03:07:15 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,19 @@ typedef struct		s_flagi // инициалищация структуры в не
 int					ft_printf(const char *format, ...);
 int					parsser(char **format, t_flagi *flag, va_list *arg);
 int					spechificator(char **format, t_flagi *flag,va_list *arg);
+int					melkay_s(va_list *arg, t_flagi *flag);
 /*
 with and presision
 */
 void				vivod_opchii(char **string, t_flagi *flag, va_list *arg);
-void				get_flag(char **string, t_flagi *flag, va_list *arg);
 void				vivod_flagi(char **string, t_flagi *flag, va_list *arg);
-void				vivod_width(char **string, t_flagi *flag, va_list *arg)
-{
+void				vivod_width(char **string, t_flagi *flag, va_list *arg);
+void				vivod_precision(char **string, t_flagi *flag, va_list *arg);
+void				vivod_length(char **string, t_flagi *flag, va_list *arg);
+intmax_t			poluchit_tip(va_list *arg, t_flagi *flag);
+uintmax_t			poluchit_unsign_tip(va_list *arg, t_flagi *flag);
+
+
 /*
 дополнительные функции
 */
