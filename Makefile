@@ -6,7 +6,7 @@
 #    By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 17:29:40 by ieropaie          #+#    #+#              #
-#    Updated: 2019/06/25 03:04:50 by ieropaie         ###   ########.fr        #
+#    Updated: 2019/06/25 21:58:30 by ieropaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LSRCDIR =	./libtft/
 
 
 SRC		=  ft_printf.c		po_tipu.c		parsing.c		melkay_s.c \
-		   upper_s.c		lower_p.c		melkay_d.c		upper_d.c \
+		   bolshoy_s.c		lower_p.c		melkay_d.c		upper_d.c \
 		   lower_i.c		lower_o.c		upper_o.c 		lower_c.c\
 		   lower_u.c		upper_u.c		lower_x.c		upper_x.c \
 		   upper_c.c		modulo.c		int_utils.c		str_utils.c \

@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:58:41 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/25 03:07:15 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/26 03:21:08 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int					ft_printf(const char *format, ...);
 int					parsser(char **format, t_flagi *flag, va_list *arg);
 int					spechificator(char **format, t_flagi *flag,va_list *arg);
 int					melkay_s(va_list *arg, t_flagi *flag);
+int					bolshoy_s(va_list *arg, t_flagi *flag);
 /*
 with and presision
 */
@@ -62,6 +63,14 @@ uintmax_t			poluchit_unsign_tip(va_list *arg, t_flagi *flag);
 дополнительные функции
 */
 void				sbros_flagov(t_flagi *flag);
+void				probel(int width, int len);
+void				zeroo(int width, int len);
+void				leviy_probel_shag(t_flagi *flag, int dlinna);
+int					wchar_dlinna(wchar_t c);
+int					wstr_ndlinna(wchar_t *s, int n);
+int					wstr_dlinna(wchar_t *s);
+int					wstr_ndlinna(wchar_t *s, int n);
+int					wstr_dlinna(wchar_t *s);
 
 
 
