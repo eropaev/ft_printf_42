@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 22:11:17 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/26 02:45:49 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/27 01:19:33 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	zeroo(int width, int len)
 void	leviy_probel_shag(t_flagi *flag, int dlinna)
 {
 	if (flag->width && !flag->minus && !flag->zero)
-		put_space(flag->width, dlinna);
+		probel(flag->width, dlinna);
 	if (flag->width && flag->zero && !flag->minus)
-		put_zero(flag->width, dlinna);
+		zeroo(flag->width, dlinna);
 }

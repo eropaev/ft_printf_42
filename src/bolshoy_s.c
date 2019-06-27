@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:50:31 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/26 03:49:40 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/27 04:39:28 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		bolshoy_s(va_list *arg, t_flagi *flag)
 	if (string == NULL)
 	{
 		is_null = 1;
-		dlinna = (flag->precision) ? ft_strndlinna("(null)", flag->precision) : 6;
+		dlinna = (flag->precision) ? ft_strnlen("(null)", flag->precision) : 6;
 	}
 	if (flag->prec && flag->precision == 0)
 		dlinna = 0;
