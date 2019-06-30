@@ -6,13 +6,13 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 02:56:56 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/27 05:51:57 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/28 00:50:31 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
 
-int		lower_d(va_list *arg, t_flagi *flag)
+int		melkay_d(va_list *arg, t_flagi *flag)
 {
 	intmax_t		nb;
 	int				dlinna;

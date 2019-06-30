@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:52:20 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/25 03:04:39 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/27 19:34:30 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int		melkay_s(va_list *arg, t_flagi *flag)
 	}
 	if (flag->prec && flag->precision == 0)
 		dlinna = 0;
-	put_str_left_space(flag, dlinna);
+	leviy_probel_shag(flag, dlinna);
 	if (!(flag->prec && !flag->precision) && !is_null)
 		ft_putnstr(string, dlinna);
 	else if (is_null)
 		ft_putnstr("(null)", dlinna);
 	if (flag->minus && flag->width)
-		put_space(flag->width, dlinna);
+		probel(flag->width, dlinna);
 	return ((flag->width > dlinna) ? flag->width : dlinna);
 }

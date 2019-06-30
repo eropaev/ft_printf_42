@@ -6,7 +6,7 @@
 #    By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 17:29:40 by ieropaie          #+#    #+#              #
-#    Updated: 2019/06/25 21:58:30 by ieropaie         ###   ########.fr        #
+#    Updated: 2019/06/30 02:40:06 by ieropaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,28 +25,13 @@ LSRCDIR =	./libtft/
 
 
 SRC		=  ft_printf.c		po_tipu.c		parsing.c		melkay_s.c \
-		   bolshoy_s.c		lower_p.c		melkay_d.c		upper_d.c \
-		   lower_i.c		lower_o.c		upper_o.c 		lower_c.c\
-		   lower_u.c		upper_u.c		lower_x.c		upper_x.c \
-		   upper_c.c		modulo.c		int_utils.c		str_utils.c \
-		   tab_utils.c 		uint_utils.c	wstr_utils.c	undefined.c
+		   bolshoy_s.c		melkay_p.c		melkay_d.c		bolshoy_d.c \
+		   melkay_i.c		melkay_o.c		bolshoy_o.c 	melkay_c.c\
+		   melkay_u.c		bolshoy_u.c		melkay_x.c		bolshoy_x.c \
+		   upper_c.c		modul.c			dop_probel.c	unsigned.c \
+		   dop_func.c 		dop_func01.c	po_tipu.c
 
-LSRC	= ft_atoi.c			ft_itoa.c		ft_memmove.c	ft_putstr.c \
-		  ft_strdel.c		ft_strlen.c		ft_strnew.c		ft_tolower.c \
-		  ft_bzero.c		ft_memalloc.c	ft_memset.c		ft_putstr_fd.c \
-		  ft_strdup.c		ft_strmap.c		ft_strnstr.c	ft_toupper.c \
-		  ft_isalnum.c		ft_memccpy.c	ft_putchar.c	ft_strcat.c \
-		  ft_strequ.c		ft_strmapi.c	ft_strrchr.c	ft_isalpha.c \
-		  ft_memchr.c		ft_putchar_fd.c	ft_strchr.c		ft_striter.c \
-		  ft_strncat.c		ft_strsplit.c	ft_isascii.c	ft_memcmp.c \
-		  ft_putendl.c		ft_strclr.c		ft_striteri.c	ft_strncmp.c \
-		  ft_strstr.c		ft_isdigit.c	ft_memcpy.c		ft_putendl_fd.c \
-		  ft_strcmp.c		ft_strjoin.c	ft_strncpy.c	ft_strsub.c \
-		  ft_isprint.c		ft_memdel.c		ft_putnbr.c		ft_strcpy.c \
-		  ft_strlcat.c		ft_strnequ.c	ft_strtrim.c	ft_putnbr_fd.c \
-		  ft_lstnew.c		ft_lstdelone.c	ft_lstdel.c		ft_lstadd.c \
-		  ft_lstiter.c		ft_lstmap.c		ft_strrev.c		ft_power.c \
-		  ft_islower.c		ft_isupper.c	ft_isspace.c
+LSRC	= *.c
 
 SRCS	=	$(addprefix $(SRCDIR), $(SRC))
 LSRCS	=	$(addprefix $(LSRCDIR), $(LSRC))

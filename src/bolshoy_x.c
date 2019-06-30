@@ -6,23 +6,24 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 02:56:43 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/27 05:13:50 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/30 01:50:57 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
+
 int		bolshoy_x(va_list *arg, t_flagi *flag)
 {
-	uintmax_t	hex;
+	uintmax_t	heximal;
 	int			dlinna;
 
-	hex = poluchit_unsign_tip(arg, flag);
+	heximal = poluchit_unsign_tip(arg, flag);
 	if (flag->prec)
 		flag->zero = 0;
-	dlinna = un_int_poluchit_flag_dlinna(hex, flag, 16);
-	put_uint_left_space(flag, dlinna, hex, 2);
-	if (!(flag->prec && !flag->precision && !hex))
-		un_int_poluchit(hex, "0123456789ABCDEF", 16);
+	dlinna = un_int_poluchit_flag_dlinna(heximal, flag, 16);
+	put_uint_left_space(flag, dlinna, heximal, 2);
+	if (!(flag->prec && !flag->precision && !heximal))
+		un_int_poluchit(heximal, "0123456789ABCDEF", 16);
 	if (flag->width && flag->minus)
 		probel(flag->width, dlinna);
 	return ((flag->width > dlinna) ? flag->width : dlinna);

@@ -6,13 +6,13 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 02:56:53 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/27 05:51:57 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/28 01:05:06 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
 
-int			meklay_c(va_list *arg, t_flagi *flag)
+int			melkay_c(va_list *arg, t_flagi *flag)
 {
 	unsigned char	c;
 	int				dlinna;

@@ -6,13 +6,13 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 03:05:56 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/26 03:19:06 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/29 23:33:13 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
 
-int			wchar_dlinna(wchar_t c)
+int			wide_char_dlinna(wchar_t c)
 {
 	int		dlinna;
 
@@ -28,7 +28,7 @@ int			wchar_dlinna(wchar_t c)
 	return (dlinna);
 }
 
-int			wstr_ndlinna(wchar_t *s, int n)
+int			wide_str_ndlinna(wchar_t *s, int n)
 {
 	int		dlinna;
 	int		i;
@@ -37,15 +37,15 @@ int			wstr_ndlinna(wchar_t *s, int n)
 	i = 0;
 	while (s[i] != '\0' && n > 0)
 	{
-		if (wchar_dlinna(s[i]) > n)
+		if (wide_char_dlinna(s[i]) > n)
 			break ;
-		n -= wchar_dlinna(s[i]);
-		dlinna += wchar_dlinna(s[i++]);
+		n -= wide_char_dlinna(s[i]);
+		dlinna += wide_char_dlinna(s[i++]);
 	}
 	return (dlinna);
 }
 
-int			wstr_dlinna(wchar_t *s)
+int			wide_string_dlinna(wchar_t *s)
 {
 	int		dlinna;
 	int		i;
@@ -55,11 +55,11 @@ int			wstr_dlinna(wchar_t *s)
 	if (!s)
 		return (0);
 	while (s[i] != '\0')
-		dlinna += wchar_dlinna(s[i++]);
+		dlinna += wide_char_dlinna(s[i++]);
 	return (dlinna);
 }
 
-int			wstr_ndlinna(wchar_t *s, int n)
+int			wide_string_ndlinna(wchar_t *s, int n)
 {
 	int		dlinna;
 	int		i;
@@ -68,15 +68,15 @@ int			wstr_ndlinna(wchar_t *s, int n)
 	i = 0;
 	while (s[i] != '\0' && n > 0)
 	{
-		if (wchar_dlinna(s[i]) > n)
+		if (wide_char_dlinna(s[i]) > n)
 			break ;
-		n -= wchar_dlinna(s[i]);
-		dlinna += wchar_dlinna(s[i++]);
+		n -= wide_char_dlinna(s[i]);
+		dlinna += wide_char_dlinna(s[i++]);
 	}
 	return (dlinna);
 }
 
-int			wstr_dlinna(wchar_t *s)
+int			wide_string_dlinna(wchar_t *s)
 {
 	int		dlinna;
 	int		i;
@@ -86,6 +86,6 @@ int			wstr_dlinna(wchar_t *s)
 	if (!s)
 		return (0);
 	while (s[i] != '\0')
-		dlinna += wchar_dlinna(s[i++]);
+		dlinna += wide_char_dlinna(s[i++]);
 	return (dlinna);
 }
