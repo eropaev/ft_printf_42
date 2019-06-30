@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 22:11:17 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/28 00:56:08 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/30 05:06:09 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int		undefined(char c, t_flagi *flag)
 
 	dlinna = 1;
 	if (flag->width && !flag->zero && !flag->minus)
-		put_space(flag->width, dlinna);
+		probel(flag->width, dlinna);
 	if (flag->width && flag->zero && !flag->minus)
-		put_zero(flag->width, dlinna);
+		zeroo(flag->width, dlinna);
 	ft_putchar(c);
 	if (flag->width && flag->minus)
-		put_space(flag->width, dlinna);
+		zeroo(flag->width, dlinna);
 	return (flag->width > dlinna ? flag->width : dlinna);
 }

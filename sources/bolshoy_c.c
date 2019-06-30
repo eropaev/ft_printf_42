@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   melkay_o.c                                         :+:      :+:    :+:   */
+/*   bolshoy_c.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/27 02:57:44 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/27 18:13:34 by ieropaie         ###   ########.fr       */
+/*   Created: 2019/06/27 01:03:03 by ieropaie          #+#    #+#             */
+/*   Updated: 2019/06/30 05:05:13 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
 
-int		melkay_o(va_list *arg, t_flagi *flag)
+int		bolshoy_c(va_list *arg, t_flagi *flag)
 {
-	uintmax_t		nb;
+	wchar_t			c;
 	int				dlinna;
 
-	nb = un_int_poluchit(arg, flag);
-	if (flag->prec)
-		flag->zero = 0;
-	dlinna = un_int_poluchit_flag_dlinna(nb, flag, 8);
-	if (flag->sharp && flag->precision > 0)
-	{
-		flag->precision--;
-		dlinna--;
-	}
-	postavit_uint_left_space(flag, dlinna, nb, 3);
-	if (!(flag->prec && !flag->precision && !nb)
-			&& !(flag->sharp && !nb))
-		un_int_poluchit(nb, "012345678", 8);
+	c = (wchar_t)va_arg(*arg, wint_t);
+	dlinna = wide_char_dlinna(c);
+	if (flag->width && !flag->minus && !flag->zero)
+		probel(flag->width, dlinna);
+	if (flag->width && flag->zero && !flag->minus)
+		zeroo(flag->width, dlinna);
+	ft_putwchar(c);
 	if (flag->width && flag->minus)
 		probel(flag->width, dlinna);
-	return ((flag->width > dlinna) ? flag->width : dlinna);
+	return (flag->width > dlinna ? flag->width : dlinna);
 }

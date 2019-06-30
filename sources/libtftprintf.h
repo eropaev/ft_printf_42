@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:58:41 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/29 23:33:13 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/30 02:56:30 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <wchar.h>
 # include <stdint.h>
-# include "../libtft/libft.h"
+# include "../libft/libft.h"
 
 typedef struct		s_flagi // инициалищация структуры в нее засунуть все поднятые флаги
 {
@@ -46,7 +46,7 @@ int					ft_printf(const char *format, ...);
 int					parsser(char **format, t_flagi *flag, va_list *arg);
 int					spechificator(char **format, t_flagi *flag,va_list *arg);
 int					melkay_s(va_list *arg, t_flagi *flag);
-int					meklay_c(va_list *arg, t_flagi *flag);
+int					melkay_c(va_list *arg, t_flagi *flag);
 int					melkay_d(va_list *arg, t_flagi *flag);
 int					melkay_i(va_list *arg, t_flagi *flag);
 int					melkay_o(va_list *arg, t_flagi *flag);
@@ -76,7 +76,29 @@ void				vivod_length(char **string, t_flagi *flag, va_list *arg);
 дополнительные функции
 */
 
-int					wide_char_dlinna(wchar_t c)
+int					wide_char_dlinna(wchar_t c);
+int					wide_str_ndlinna(wchar_t *s, int n);
+int					wide_string_dlinna(wchar_t *s);
+int					wide_string_ndlinna(wchar_t *s, int n);
+int					wide_string_dlinna(wchar_t *s);
+
+void				poluchit_int(intmax_t nb);
+int					poluchit_flagi_dlina(intmax_t nb, t_flagi *flag);
+int					poluchit_dlinna(intmax_t nb);
+void				stavim_int_leviy_probel(t_flagi *flag, int dlinna, intmax_t nb);
+
+void				probel(int width, int dlinna);
+void				zeroo(int width, int dlinna);
+void				leviy_probel_shag(t_flagi *flag, int dlinna);
+int					undefined(char c, t_flagi *flag);
+
+intmax_t			poluchit_tip(va_list *arg, t_flagi *flag);
+uintmax_t			poluchit_unsign_tip(va_list *arg, t_flagi *flag);
+void				un_int_poluchit(uintmax_t nb, char *string, int base);
+int					un_int_poluchit_dlin(uintmax_t nb, int base);
+int					un_int_poluchit_flag_dlinna(uintmax_t nb, t_flagi *flag, int base);
+void				postavit_uint_left_space(t_flagi *flag, int dlinna, uintmax_t nb, int type);
+
 
 
 

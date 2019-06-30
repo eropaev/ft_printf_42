@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bolshoy_x.c                                        :+:      :+:    :+:   */
+/*   melkay_d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/27 02:56:43 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/30 01:50:57 by ieropaie         ###   ########.fr       */
+/*   Created: 2019/06/27 02:56:56 by ieropaie          #+#    #+#             */
+/*   Updated: 2019/06/30 04:42:05 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
 
-int		bolshoy_x(va_list *arg, t_flagi *flag)
+int		melkay_d(va_list *arg, t_flagi *flag)
 {
-	uintmax_t	heximal;
-	int			dlinna;
+	intmax_t		nb;
+	int				dlinna;
 
-	heximal = poluchit_unsign_tip(arg, flag);
+	nb = poluchit_tip(arg, flag);
 	if (flag->prec)
 		flag->zero = 0;
-	dlinna = un_int_poluchit_flag_dlinna(heximal, flag, 16);
-	put_uint_left_space(flag, dlinna, heximal, 2);
-	if (!(flag->prec && !flag->precision && !heximal))
-		un_int_poluchit(heximal, "0123456789ABCDEF", 16);
-	if (flag->width && flag->minus)
+	dlinna = poluchit_flagi_dlina(nb, flag);
+	stavim_int_leviy_probel(flag, dlinna, nb);
+	if (!(flag->prec && flag->precision == 0 && nb == 0))
+		poluchit_int(nb);
+	if (flag->minus && flag->width)
 		probel(flag->width, dlinna);
 	return ((flag->width > dlinna) ? flag->width : dlinna);
 }

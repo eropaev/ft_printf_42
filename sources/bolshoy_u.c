@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bolshoy_c.c                                        :+:      :+:    :+:   */
+/*   bolshoy_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/27 01:03:03 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/27 01:05:30 by ieropaie         ###   ########.fr       */
+/*   Created: 2019/06/27 02:56:40 by ieropaie          #+#    #+#             */
+/*   Updated: 2019/06/30 04:59:45 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
 
-int		bolshoy_c(va_list *arg, t_flagi *flag)
+int		bolshoy_u(va_list *arg, t_flagi *flag)
 {
-	wchar_t			c;
-	int				dlinna;
+	unsigned long int	nb;
+	int					dlinna;
 
-	c = (wchar_t)va_arg(*arg, wint_t);
-	dlinna = wchar_dlinna(c);
-	if (flag->width && !flag->minus && !flag->zero)
-		probel(flag->width, dlinna);
-	if (flag->width && flag->zero && !flag->minus)
-		zeroo(flag->width, dlinna);
-	ft_putwchar(c);
+	nb = va_arg(*arg, unsigned long int);
+	if (flag->prec)
+		flag->zero = 0;
+	dlinna = un_int_poluchit_flag_dlinna(nb, flag, 10);
+	postavit_uint_left_space(flag, dlinna, nb, 0);
+	if (!(flag->prec && !flag->precision && !nb))
+		un_int_poluchit(nb, "0123456789", 10);
 	if (flag->width && flag->minus)
 		probel(flag->width, dlinna);
-	return (flag->width > dlinna ? flag->width : dlinna);
+	return ((flag->width) ? flag->width : dlinna);
 }

@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 04:59:04 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/24 16:19:18 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/30 05:45:26 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,40 @@
 */
 void		sbros_flagov(t_flagi *flag)
 {
-		flag->e_length = 0;
-		flag->minus = 0;
-		flag->plus = 0;
-		flag->prec = 0;
-		flag->precision = 0;
-		flag->sharp = 0;
-		flag->space = 0;
-		flag->width = 0;
-		flag->zero = 0;
+	flag->e_length = 0;
+	flag->minus = 0;
+	flag->plus = 0;
+	flag->prec = 0;
+	flag->precision = 0;
+	flag->sharp = 0;
+	flag->space = 0;
+	flag->width = 0;
+	flag->zero = 0;
 }
 /*
 функция выставления спецификаторов
 принимает формат из printf, структуру флагов,
 */
-int		spechificator(char **format, t_flagi *flag,va_list *arg)
+int		spechificator(char **format, t_flagi *flag, va_list *arg)
 {
-	static int	(*form[])(va_list*, t_flagi*) = {melkay_d, melkay_i,
-			melkay_o, melkay_u, melkay_x, melkay_c, melkay_s,
-			melkay_p, bolshoy_s, bolshoy_d, bolshoy_o, bolshoy_u, bolshoy_x, bolshoy_c
-			modul, 0 };
-static char spechifier [] = {'d', 'i', 'o', 'u', 'x', 'c', 's', 'p', 'D', 'O',
-'U', 'X', 'C', '%', 0};
+	static int	(*form[])(va_list*, t_flagi*) = {melkay_s,bolshoy_s,
+		melkay_p, melkay_d, bolshoy_d, melkay_i, melkay_o, bolshoy_o,
+		melkay_u, bolshoy_u, melkay_x, bolshoy_x, melkay_c, bolshoy_c,
+		modul, 0};
+static char spechifier [] = {'s', 'S', 'p', 'd', 'D', 'i', 'o', 'O', 'u', 'U',
+'x', 'X', 'c', 'C', '%', 0};
 
-int			i;
-int			vivod;
+	int			i;
+	int			vivod;
 
-i = 0;
-
-while (spechifier[i] != **format && spechifier[i])
+	i = 0;
+	while (spechifier[i] != **format && spechifier[i])
 		i++;
 	if (**format != '\0' && spechifier[i] == **format)
 	{
 		vivod = form[i](arg, flag);
 		(*format)++;
-		return (spechifier);
+		return (vivod);
 	}
 	if (**format != '\0')
 	{
@@ -74,7 +73,7 @@ vivod = 0;
 		{
 			sbros_flagov(flag);
 			(*format)++;
-			spechificator(format, flag, arg);
+			vivod_opchii(format, flag, arg);
 			vivod += spechificator(format, flag, arg);
 		}
 		else if (**format != '\0')
@@ -96,7 +95,7 @@ int		ft_printf(const char *format, ...) // основной вывод
 	vivod = 0;
 	flag = ft_memalloc(sizeof(t_flagi));
 	va_start(arg, format);
-	vivod = parser((char**)&format, flag, &arg);
+	vivod = parsser((char**)&format, flag, &arg);
 	va_end(arg);
 	ft_memdel((void**)&flag);
 	return (vivod);
