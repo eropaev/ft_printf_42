@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 01:22:54 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/28 00:38:34 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/07/01 05:10:50 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int		poluchit_flagi_dlina(intmax_t nb, t_flagi *flag)
 	int		dlinna;
 
 	dlinna = poluchit_dlinna(nb);
-	if (flag->precision > dlinna)
-		dlinna += flag->precision - dlinna;
+	if (flag->pres > dlinna)
+		dlinna += flag->pres - dlinna;
 	if (flag->plus && nb >= 0)
 		dlinna++;
 	if (flag->space && !flag->plus && nb >= 0)
 		dlinna++;
 	if (nb < 0)
 		dlinna++;
-	if (flag->prec && !flag->precision && !nb)
+	if (flag->prec && !flag->pres && !nb)
 		dlinna = flag->space ? 1 : 0;
 	return (dlinna);
 }
@@ -70,8 +70,8 @@ void	stavim_int_leviy_probel(t_flagi *flag, int dlinna, intmax_t nb)
 		ft_putchar('+');
 	if (nb < 0 && dlinna != 0)
 		ft_putchar('-');
-	if (flag->zero && flag->width && !flag->minus && !flag->precision)
+	if (flag->zero && flag->width && !flag->minus && !flag->pres)
 		zeroo(flag->width, dlinna);
-	else if (flag->precision)
-		zeroo(flag->precision, poluchit_dlinna(nb));
+	else if (flag->pres)
+		zeroo(flag->pres, poluchit_dlinna(nb));
 }

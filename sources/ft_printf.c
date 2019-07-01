@@ -6,19 +6,19 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 04:59:04 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/30 18:10:26 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/07/01 05:21:17 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
 
-void		sbros_flagov(t_flagi *flag)
+void	sbros_flagov(t_flagi *flag)
 {
 	flag->e_length = 0;
 	flag->minus = 0;
 	flag->plus = 0;
 	flag->prec = 0;
-	flag->precision = 0;
+	flag->pres = 0;
 	flag->sharp = 0;
 	flag->space = 0;
 	flag->width = 0;
@@ -27,14 +27,12 @@ void		sbros_flagov(t_flagi *flag)
 
 int		spechificator(char **format, t_flagi *flag, va_list *arg)
 {
-
+	static char spechifier[] = {'s', 'S', 'p', 'd', 'D',
+	'i', 'o', 'O', 'u', 'U', 'x', 'X', 'c', 'C', '%', 0};
 	static int	(*form[])(va_list*, t_flagi*) = {melkay_s, bolshoy_s,
 		melkay_p, melkay_d, bolshoy_d, melkay_i, melkay_o, bolshoy_o,
 		melkay_u, bolshoy_u, melkay_x, bolshoy_x, melkay_c, bolshoy_c,
 		modul, 0};
-	static char spechifier[] = {'s', 'S', 'p', 'd', 'D',
-	'i', 'o', 'O', 'u', 'U', 'x', 'X', 'c', 'C', '%', 0};
-
 	int			i;
 	int			vivod;
 
@@ -93,12 +91,3 @@ int		ft_printf(const char *format, ...)
 	ft_memdel((void**)&flag);
 	return (vivod);
 }
-
-// int		main()
-// {
-// 	ft_printf("%-10.5d", 42);
-// 	ft_printf("@moulitest: %s", NULL);
-// 	// ft_printf("%s %s", NULL, string);
-
-// 	return (0);
-// }

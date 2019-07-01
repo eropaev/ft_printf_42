@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 03:05:56 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/30 05:54:40 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/07/01 04:56:47 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int			wide_char_dlinna(wchar_t c)
 	return (dlinna);
 }
 
-int			wide_string_dlinna(wchar_t *s)
+int			wsd01(wchar_t *s)
 {
 	int		dlinna;
 	int		i;
@@ -42,7 +42,7 @@ int			wide_string_dlinna(wchar_t *s)
 	return (dlinna);
 }
 
-int			wide_string_ndlinna(wchar_t *s, int n)
+int			wstr_dln(wchar_t *s, int n)
 {
 	int		dlinna;
 	int		i;

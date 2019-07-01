@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 02:57:44 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/30 04:49:20 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/07/01 05:10:50 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int		melkay_o(va_list *arg, t_flagi *flag)
 	if (flag->prec)
 		flag->zero = 0;
 	dlinna = un_int_poluchit_flag_dlinna(nb, flag, 8);
-	if (flag->sharp && flag->precision > 0)
+	if (flag->sharp && flag->pres > 0)
 	{
-		flag->precision--;
+		flag->pres--;
 		dlinna--;
 	}
-	postavit_uint_left_space(flag, dlinna, nb, 3);
-	if (!(flag->prec && !flag->precision && !nb)
+	pst_uint_lspace(flag, dlinna, nb, 3);
+	if (!(flag->prec && !flag->pres && !nb)
 			&& !(flag->sharp && !nb))
 		un_int_poluchit(nb, "012345678", 8);
 	if (flag->width && flag->minus)

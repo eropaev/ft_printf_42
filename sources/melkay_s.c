@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 02:52:20 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/27 19:34:30 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/07/01 05:10:50 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,17 @@ int		melkay_s(va_list *arg, t_flagi *flag)
 	if (flag->e_length == l)
 		return (melkay_s(arg, flag));
 	string = va_arg(*arg, char *);
-	dlinna = (flag->precision) ? ft_strnlen(string, flag->precision) : ft_strlen(string);
+	dlinna = (flag->pres)
+	? ft_strnlen(string, flag->pres) : ft_strlen(string);
 	if (string == NULL)
 	{
 		is_null = 1;
-		dlinna = (flag->precision) ? ft_strnlen("(null)", flag->precision) : 6;
+		dlinna = (flag->pres) ? ft_strnlen("(null)", flag->pres) : 6;
 	}
-	if (flag->prec && flag->precision == 0)
+	if (flag->prec && flag->pres == 0)
 		dlinna = 0;
 	leviy_probel_shag(flag, dlinna);
-	if (!(flag->prec && !flag->precision) && !is_null)
+	if (!(flag->prec && !flag->pres) && !is_null)
 		ft_putnstr(string, dlinna);
 	else if (is_null)
 		ft_putnstr("(null)", dlinna);

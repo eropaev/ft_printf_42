@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/23 04:17:54 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/24 16:19:18 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/07/01 05:10:50 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void		vivod_opchii(char **string, t_flagi *flag, va_list *arg)
 		vivod_width(string, flag, arg);
 	if (**string == '.')
 		vivod_precision(string, flag, arg);
-	if (**string == 'h' || **string == 'l' || **string == 'j' || **string == 'z')
+	if (**string == 'h' || **string == 'l' ||
+	**string == 'j' || **string == 'z')
 		vivod_length(string, flag, arg);
 	if (**string == '#' || **string == '0' || **string == '-' || **string == '+'
 			|| **string == ' ')
@@ -27,8 +28,8 @@ void		vivod_opchii(char **string, t_flagi *flag, va_list *arg)
 
 void		vivod_flagi(char **string, t_flagi *flag, va_list *arg)
 {
-	while (**string == '#' || **string == '0' || **string == '-' || **string == '+'
-			|| **string == ' ')
+	while (**string == '#' || **string == '0' ||
+	**string == '-' || **string == '+' || **string == ' ')
 	{
 		if (**string == '#')
 			flag->sharp = 1;
@@ -58,14 +59,14 @@ void		vivod_width(char **string, t_flagi *flag, va_list *arg)
 
 void		vivod_precision(char **string, t_flagi *flag, va_list *arg)
 {
-	int		precision;
+	int		pres;
 
-	precision = 0;
+	pres = 0;
 	while (**string == '.')
 	{
 		flag->prec = 1;
 		(*string)++;
-		flag->precision = ft_atoi(*string);
+		flag->pres = ft_atoi(*string);
 		while (ft_isdigit(**string))
 			(*string)++;
 	}

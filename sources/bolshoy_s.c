@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 21:50:31 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/30 17:54:39 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/07/01 05:10:50 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ int		bolshoy_s(va_list *arg, t_flagi *flag)
 
 	is_null = 0;
 	string = va_arg(*arg, wchar_t*);
-	dlinna = (flag->precision) ? wide_string_ndlinna(string, flag->precision) : wide_string_dlinna(string);
+	dlinna = (flag->pres) ? wstr_dln(string, flag->pres) : wsd01(string);
 	if (string == NULL)
 	{
 		is_null = 1;
-		dlinna = (flag->precision) ? ft_strnlen("(NULL)", flag->precision) : 6;
+		dlinna = (flag->pres) ? ft_strnlen("(NULL)", flag->pres) : 6;
 	}
-	if (flag->prec && flag->precision == 0)
+	if (flag->prec && flag->pres == 0)
 		dlinna = 0;
 	if (flag->width && !flag->minus && !flag->zero)
 		probel(flag->width, dlinna);
 	if (flag->width && flag->zero && !flag->minus)
 		zeroo(flag->width, dlinna);
-	if (!(flag->prec && flag->precision == 0) && is_null == 0)
+	if (!(flag->prec && flag->pres == 0) && is_null == 0)
 		ft_putnwstr(string, dlinna);
 	else if (is_null == 1)
 		ft_putnstr("(NULL)", dlinna);
