@@ -6,15 +6,12 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 04:59:04 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/30 05:45:26 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/30 18:10:26 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
-/*
-принимает структуру созданную в хедере t_flagi с указателем на flag
-резетит флаги выставляя на 0
-*/
+
 void		sbros_flagov(t_flagi *flag)
 {
 	flag->e_length = 0;
@@ -27,18 +24,16 @@ void		sbros_flagov(t_flagi *flag)
 	flag->width = 0;
 	flag->zero = 0;
 }
-/*
-функция выставления спецификаторов
-принимает формат из printf, структуру флагов,
-*/
+
 int		spechificator(char **format, t_flagi *flag, va_list *arg)
 {
-	static int	(*form[])(va_list*, t_flagi*) = {melkay_s,bolshoy_s,
+
+	static int	(*form[])(va_list*, t_flagi*) = {melkay_s, bolshoy_s,
 		melkay_p, melkay_d, bolshoy_d, melkay_i, melkay_o, bolshoy_o,
 		melkay_u, bolshoy_u, melkay_x, bolshoy_x, melkay_c, bolshoy_c,
 		modul, 0};
-static char spechifier [] = {'s', 'S', 'p', 'd', 'D', 'i', 'o', 'O', 'u', 'U',
-'x', 'X', 'c', 'C', '%', 0};
+	static char spechifier[] = {'s', 'S', 'p', 'd', 'D',
+	'i', 'o', 'O', 'u', 'U', 'x', 'X', 'c', 'C', '%', 0};
 
 	int			i;
 	int			vivod;
@@ -59,14 +54,12 @@ static char spechifier [] = {'s', 'S', 'p', 'd', 'D', 'i', 'o', 'O', 'u', 'U',
 	}
 	return (0);
 }
-/*
-парсинг, работа парсера
-*/
+
 int		parsser(char **format, t_flagi *flag, va_list *arg)
 {
-int		vivod;
+	int	vivod;
 
-vivod = 0;
+	vivod = 0;
 	while (**format)
 	{
 		if (**format == '%')
@@ -83,10 +76,10 @@ vivod = 0;
 			vivod++;
 		}
 	}
-	return(vivod);
+	return (vivod);
 }
 
-int		ft_printf(const char *format, ...) // основной вывод
+int		ft_printf(const char *format, ...)
 {
 	va_list		arg;
 	t_flagi		*flag;
@@ -101,16 +94,11 @@ int		ft_printf(const char *format, ...) // основной вывод
 	return (vivod);
 }
 
-
-
-
-
-
-
 // int		main()
 // {
 // 	ft_printf("%-10.5d", 42);
-
+// 	ft_printf("@moulitest: %s", NULL);
+// 	// ft_printf("%s %s", NULL, string);
 
 // 	return (0);
 // }

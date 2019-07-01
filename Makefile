@@ -6,7 +6,7 @@
 #    By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 17:29:40 by ieropaie          #+#    #+#              #
-#    Updated: 2019/06/30 05:04:28 by ieropaie         ###   ########.fr        #
+#    Updated: 2019/06/30 17:45:14 by ieropaie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ C = clang
 
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror -O2
+FLAGS = -Wall -Wextra -Werror
 
 LIBFT = libft
 
@@ -30,7 +30,6 @@ SOURCES = ft_printf.c		po_tipu.c		parsing.c		melkay_s.c \
 		   melkay_u.c		bolshoy_u.c		melkay_x.c		bolshoy_x.c \
 		   bolshoy_c.c		modul.c			dop_probel.c	unsigned.c \
 		   dop_func.c 		dop_func01.c	po_tipu.c
-
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
 OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))

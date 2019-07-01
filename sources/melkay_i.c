@@ -6,11 +6,12 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 02:57:05 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/27 18:06:27 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/30 05:57:47 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libtftprintf.h"
+
 int		melkay_i(va_list *arg, t_flagi *flag)
 
 {
@@ -28,4 +29,3 @@ int		melkay_i(va_list *arg, t_flagi *flag)
 		probel(flag->width, dlinna);
 	return ((flag->width > dlinna) ? flag->width : dlinna);
 }
-

@@ -6,7 +6,7 @@
 /*   By: ieropaie <ieropaie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:58:41 by ieropaie          #+#    #+#             */
-/*   Updated: 2019/06/30 02:56:30 by ieropaie         ###   ########.fr       */
+/*   Updated: 2019/06/30 13:40:14 by ieropaie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdint.h>
 # include "../libft/libft.h"
 
-typedef struct		s_flagi // инициалищация структуры в нее засунуть все поднятые флаги
+typedef struct		s_flagi
 {
 	int				precision;
 	int				prec;
@@ -29,19 +29,18 @@ typedef struct		s_flagi // инициалищация структуры в не
 	int				sharp;
 	int				zero;
 	int				width;
-	enum		// спецификаторы через enumerator list первое значение 0 и дальше
+	enum
 	{
-		none, // int или un.int
-		h,	// то же - но принудительно приводится к sh. int ии un. s. int
-		hh,	 // то же - но к sign. char or unsign. char
-		l, // long int or insign. long int
-		ll, // long long int or uns.
-		j,	// intmax or uintmax
-		z	// size_t или эквивалент
+		none,
+		h,
+		hh,
+		l,
+		ll,
+		j,
+		z
 	}				e_length;
 }					t_flagi;
 
-// функции спецификаторов
 int					ft_printf(const char *format, ...);
 int					parsser(char **format, t_flagi *flag, va_list *arg);
 int					spechificator(char **format, t_flagi *flag,va_list *arg);
@@ -54,52 +53,35 @@ int					melkay_p(va_list *arg, t_flagi *flag);
 int					melkay_u(va_list *arg, t_flagi *flag);
 int					melkay_x(va_list *arg, t_flagi *flag);
 int					modul(va_list *arg, t_flagi *flag);
-
 int					bolshoy_d(va_list *arg, t_flagi *flag);
 int					bolshoy_s(va_list *arg, t_flagi *flag);
 int					bolshoy_c(va_list *arg, t_flagi *flag);
 int					bolshoy_o(va_list *arg, t_flagi *flag);
 int					bolshoy_u(va_list *arg, t_flagi *flag);
 int					bolshoy_x(va_list *arg, t_flagi *flag);
-
-
-/*
-with and presision
-*/
 void				vivod_opchii(char **string, t_flagi *flag, va_list *arg);
 void				vivod_flagi(char **string, t_flagi *flag, va_list *arg);
 void				vivod_width(char **string, t_flagi *flag, va_list *arg);
 void				vivod_precision(char **string, t_flagi *flag, va_list *arg);
 void				vivod_length(char **string, t_flagi *flag, va_list *arg);
-
-/*
-дополнительные функции
-*/
-
 int					wide_char_dlinna(wchar_t c);
 int					wide_str_ndlinna(wchar_t *s, int n);
 int					wide_string_dlinna(wchar_t *s);
 int					wide_string_ndlinna(wchar_t *s, int n);
 int					wide_string_dlinna(wchar_t *s);
-
 void				poluchit_int(intmax_t nb);
 int					poluchit_flagi_dlina(intmax_t nb, t_flagi *flag);
 int					poluchit_dlinna(intmax_t nb);
 void				stavim_int_leviy_probel(t_flagi *flag, int dlinna, intmax_t nb);
-
 void				probel(int width, int dlinna);
 void				zeroo(int width, int dlinna);
 void				leviy_probel_shag(t_flagi *flag, int dlinna);
 int					undefined(char c, t_flagi *flag);
-
 intmax_t			poluchit_tip(va_list *arg, t_flagi *flag);
 uintmax_t			poluchit_unsign_tip(va_list *arg, t_flagi *flag);
 void				un_int_poluchit(uintmax_t nb, char *string, int base);
 int					un_int_poluchit_dlin(uintmax_t nb, int base);
 int					un_int_poluchit_flag_dlinna(uintmax_t nb, t_flagi *flag, int base);
 void				postavit_uint_left_space(t_flagi *flag, int dlinna, uintmax_t nb, int type);
-
-
-
 
 #endif
